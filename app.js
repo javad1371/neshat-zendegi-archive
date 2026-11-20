@@ -209,9 +209,16 @@
     el.dialogSource.replaceChildren();
     const sourceName = article.source_name || "تیم تحریریه نشاط زندگی";
     el.dialogSource.appendChild(document.createTextNode("منبع: "));
-    if (article.source_url) {
+    let safeSourceUrl = "";
+    try {
+      const parsedUrl = new URL(article.source_url);
+      if (parsedUrl.protocol === "https:" || parsedUrl.protocol === "http:") safeSourceUrl = parsedUrl.href;
+    } catch (_) {
+      safeSourceUrl = "";
+    }
+    if (safeSourceUrl) {
       const link = document.createElement("a");
-      link.href = article.source_url;
+      link.href = safeSourceUrl;
       link.target = "_blank";
       link.rel = "noopener noreferrer";
       link.textContent = sourceName;
