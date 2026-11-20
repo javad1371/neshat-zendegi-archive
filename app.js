@@ -104,6 +104,7 @@
         select: "id,category_id,title,slug,sort_order,is_active",
         is_active: "eq.true",
         slug: "neq.games",
+        id: "not.in.(6,16)",
         order: "sort_order.asc"
       })
     ]);
@@ -144,6 +145,7 @@
       select: "id,title,body,category_id,subcategory_id,published_at,created_at,source_name,source_url,image_url",
       is_published: "eq.true",
       published_at: "not.is.null",
+      subcategory_id: "not.in.(6,16)",
       and: "(published_at.lte." + archiveCutoff() + ")",
       order: "published_at.desc"
     };
