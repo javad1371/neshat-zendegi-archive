@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#174b50">
+  <meta name="description" content="آرشیو مطالب نشاط زندگی؛ همراهی برای خانواده، معنویت، شادی و رشد فردی">
+  <title>آرشیو نشاط زندگی</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./config.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./" aria-label="صفحه اصلی آرشیو نشاط زندگی">
+        <span class="brand-mark" aria-hidden="true">ن</span>
+        <span><strong>نشاط زندگی</strong><small>آرشیو مطالب</small></span>
+      </a>
+      <a class="app-link" href="https://github.com/javad1371/neshat-zendegi-android" target="_blank" rel="noreferrer">درباره نشاط زندگی <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-pattern" aria-hidden="true"></div>
+      <div class="hero-content">
+        <span class="eyebrow">گنجینه دانایی و حال خوب</span>
+        <h1>آرشیو نشاط زندگی</h1>
+        <p>مطالبی برای آرامش خانواده، روشنایی دل و شیرینی لحظه‌های زندگی؛ همیشه در دسترس شما.</p>
+        <div class="hero-stats">
+          <div><strong id="archive-count">—</strong><span>مطلب در آرشیو</span></div>
+          <div><strong>۴</strong><span>بخش محتوایی</span></div>
+          <div><strong>رایگان</strong><span>دسترسی همگانی</span></div>
+        </div>
+      </div>
+      <div class="hero-orb" aria-hidden="true"><span>✦</span><i>❋</i></div>
+    </section>
+
+    <section class="archive-wrap" aria-label="جست‌وجو و مطالب آرشیو">
+      <div class="section-heading">
+        <div><span class="eyebrow dark">مرور خاطره‌ها و آموخته‌ها</span><h2>کتابخانه آرشیو</h2></div>
+        <p>مطالب پس از گذشت هفت روز از انتشار، به این گنجینه می‌پیوندند.</p>
+      </div>
+
+      <form id="filters" class="filters">
+        <label class="search-field">
+          <span class="sr-only">جست‌وجو در عنوان و متن</span>
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="search-input" type="search" placeholder="جست‌وجو در عنوان و متن مطالب…" autocomplete="off">
+        </label>
+        <label class="filter-field"><span>بخش</span><select id="category-filter"><option value="">همه بخش‌ها</option></select></label>
+        <label class="filter-field"><span>زیرعنوان</span><select id="subcategory-filter" disabled><option value="">همه زیرعنوان‌ها</option></select></label>
+        <button class="search-button" type="submit">جست‌وجو</button>
+        <button class="reset-button" id="reset-button" type="button">پاک‌کردن</button>
+      </form>
+
+      <div class="results-bar">
+        <p id="results-summary" aria-live="polite">در حال دریافت مطالب آرشیو…</p>
+        <span class="sort-label">ترتیب: جدیدترین انتشار</span>
+      </div>
+
+      <div id="message" class="message" role="status" aria-live="polite">در حال اتصال به آرشیو…</div>
+      <div id="articles" class="article-grid" aria-live="polite"></div>
+
+      <nav id="pagination" class="pagination" aria-label="صفحه‌بندی" hidden>
+        <button id="prev-page" type="button">صفحه قبل</button>
+        <span id="page-indicator"></span>
+        <button id="next-page" type="button">صفحه بعد</button>
+      </nav>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand"><span class="brand-mark small">ن</span><span><strong>نشاط زندگی</strong><small>همراه لحظه‌های روشن شما</small></span></div>
+      <p>© <span id="year"></span> آرشیو نشاط زندگی. نگهداری و نمایش مطالب با احترام به منابع و پدیدآورندگان.</p>
+    </div>
+  </footer>
+
+  <dialog id="article-dialog" class="article-dialog">
+    <div class="dialog-top"><span id="dialog-category" class="category-chip"></span><button id="close-dialog" class="close-dialog" type="button" aria-label="بستن">×</button></div>
+    <h2 id="dialog-title"></h2>
+    <div id="dialog-meta" class="article-meta"></div>
+    <div id="dialog-body" class="dialog-body"></div>
+    <div id="dialog-source" class="source-line"></div>
+  </dialog>
+</body>
+</html>
