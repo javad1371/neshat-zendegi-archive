@@ -103,6 +103,7 @@
       apiGet("subcategories", {
         select: "id,category_id,title,slug,sort_order,is_active",
         is_active: "eq.true",
+        slug: "neq.games",
         order: "sort_order.asc"
       })
     ]);
